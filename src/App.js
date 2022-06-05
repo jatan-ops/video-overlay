@@ -71,8 +71,10 @@ function App() {
         > 
           <img 
             className='thread-video' 
-            width={screenWidth*0.8}
-            height={screenHeight*0.8}
+            width={screenWidth*0.6}
+            height={screenHeight*0.7} // screen height and width can be manipulated any which way but 
+            // when aspect ratio changes, box does not remain aligned ie once box is added -> change screen size -> refresh and box sticks
+            // -> change aspect ratio -> box does not stick
             src='https://wallpaper.dog/large/5478316.jpg'          
           />
           <div
@@ -87,7 +89,7 @@ function App() {
               return (
                 <span key={square.id}>
                   {
-                    displaySquareId === square.id &&
+                    // displaySquareId === square.id &&
                     <Rnd
                       style={{
                         border: "solid 4px pink",
@@ -113,8 +115,6 @@ function App() {
                           timeStamp: square.timeStamp,
                           screenHeight: screenHeight,
                           screenWidth: screenWidth,
-                          screenHeight: square.screenHeight,
-                          screenWidth: square.screenWidth,
                           width: parseInt(ref.style.width.slice(0,-2)),
                           height: parseInt(ref.style.height.slice(0,-2)),
                           ...position
